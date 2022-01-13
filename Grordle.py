@@ -8,6 +8,7 @@ Created on Wed Jan 12 19:54:28 2022
 
 import pandas as pd
 import numpy as np
+import random
 
 # print("Hello. Welcome to Grordle.")
 # num_letters = input("What letter length of words do you want? ")
@@ -21,3 +22,10 @@ print (word_bank)
 
 possible_solns = word_bank.loc[(word_bank['Solution'] == 'Y').array, ['Word']]
 print(possible_solns)
+
+random.seed()
+soln_ndx = random.randint(1, len(possible_solns))
+
+print(possible_solns.loc[soln_ndx])
+
+
