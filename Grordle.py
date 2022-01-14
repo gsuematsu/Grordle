@@ -11,7 +11,7 @@ import random
 
 num_attempts = 6
 
-# print("Hello. Welcome to Grordle.")
+print("Hello. Welcome to Grordle.")
 print("_ is incorrect, . is correct letter & incorrect spot, * is correct letter & spot")
 # num_letters = int(input("What letter length of words do you want? "))
 
