@@ -7,7 +7,6 @@ Created on Wed Jan 12 19:54:28 2022
 """
 
 import pandas as pd
-import numpy as np
 import random
 
 num_attempts = 6
@@ -29,7 +28,7 @@ random.seed()
 soln_ndx = random.randint(0, len(possible_solns) - 1)
 soln = (possible_solns.loc[soln_ndx]).values[0]
 
-print(soln)
+# print(soln)
 
 # Begin guessing
 n_guess = 0
@@ -42,7 +41,7 @@ while n_guess < num_attempts:
     for i in range(len(guesses)):
         print(guesses[i] + " " + results[i])
         
-    guess = input("Guess #" + str(n_guess + 1) + ": ")
+    guess = input("Guess #" + str(n_guess + 1) + ": ").lower()
     
     # Checks if word is valid
     if len(guess) != num_letters:
