@@ -20,6 +20,7 @@ num_letters = 5
 word_bank = pd.read_excel('Word Bank.xlsx', 
                           sheet_name = str(num_letters) + '-letter') 
 
+
 possible_solns = word_bank.loc[(word_bank['Solution'] == 'Y').array, ['Word']]
 # print(possible_solns)
 
