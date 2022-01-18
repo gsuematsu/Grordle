@@ -27,7 +27,7 @@ possible_solns = word_bank.loc[(word_bank['Solution'] == 'Y').array, ['Word']]
 # Choosing random solution
 random.seed()
 soln_ndx = random.randint(0, len(possible_solns) - 1)
-soln = (possible_solns.loc[soln_ndx]).values[0]
+soln = (possible_solns.iloc[soln_ndx]).values[0]
 
 # print(soln)
 
