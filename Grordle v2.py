@@ -23,7 +23,7 @@ print(word_bank)
 
 num_letters = int(input("What letter length of words do you want? "))
 
-word_bank_clean = word_bank.loc[(len(word_bank['Word']) == num_letters).array, ['Word']]
+word_bank_clean = word_bank.loc[(len(word_bank['Word']).array == num_letters), ['Word']]
 
 print(word_bank_clean)
 
