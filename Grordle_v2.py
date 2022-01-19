@@ -17,11 +17,14 @@ print("Hello. Welcome to Grordle.")
 print("_ is incorrect, . is correct letter & incorrect spot, * is correct letter & spot")
 
 print("Loading word bank... (~1 min)")
-word_bank = pd.read_excel('Word Bank long.xlsx')
+word_bank = pd.read_excel('Word Bank medium.xlsx')
 # word_bank = pd.read_excel('Word Bank.xlsx', 
 #                           sheet_name = '5-letter') 
 
-num_letters = int(input("What letter length of words do you want? "))
+num_letters = int(input("What letter length of words do you want? (3-8) "))
+
+while num_letters > 8 or num_letters < 3:
+    num_letters = int(input("What letter length of words do you want? (3-8) "))
 
 word_bank = word_bank.loc[((word_bank['Word']).str.len()== num_letters)]
 
@@ -40,7 +43,7 @@ guesses = []
 results = []
 is_correct = False
 
-while n_guess < num_attempts:
+while n_guess < num_attempts and not is_correct:
     print("Previous guesses: ")
     for i in range(len(guesses)):
         print(guesses[i] + " " + results[i])
@@ -72,7 +75,7 @@ while n_guess < num_attempts:
         results.append(result)
         
         if result == ''.join(["* " for i in range(num_letters)]):
-            n_guess = num_attempts
+            # n_guess = num_attempts
             is_correct = True
             
         n_guess = n_guess + 1
@@ -80,6 +83,7 @@ while n_guess < num_attempts:
 
 if is_correct:
     print("You guessed correctly!")
+    print("Score: " + str(n_guess) + "/" + str(num_attempts))
     for i in range(len(guesses)):
         print(guesses[i] + " " + results[i])
 else:
